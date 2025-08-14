@@ -1,0 +1,14 @@
+h1,h2,h3,h4,h5,h6 {
+    margin-bottom: 30px;
+}
+p {
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+img {
+    width: 100%;
+    border-radius: 10px;
+}
+nav {
+    margin-bottom: 30px;
+}
