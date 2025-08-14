@@ -8,7 +8,7 @@ body {
     font-family: 'Nunito','Huninn';
 }
 nav {
-    background-color: #098;
+    background-color: #009988;
     padding-block: 20px;
     display: flex;
     gap: 25px;
@@ -30,4 +30,8 @@ header {
         height: 100%;
         object-fit: cover;
     }
+}
+main {
+    width: 800px;
+    margin-inline: auto;
 }
