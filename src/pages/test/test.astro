@@ -1,0 +1,26 @@
+---
+let a = ['apple','banana','cat']
+let title = 'Hello Astro'
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{title}</h1>
+    {
+        a.map(function(data){
+            return <div>{data}</div>
+        })
+    }
+
+    <ul>
+        <li>{a[0]}</li>
+        <li>{a[1]}</li>
+        <li>{a[2]}</li>
+    </ul>
+</body>
+</html>

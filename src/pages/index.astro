@@ -1,11 +1,16 @@
 ---
 import BaseLayout from "../components/BaseLayout.astro";
+
+import MyTitle from '../components/MyTitle.astro'
+
 ---
 <BaseLayout>
 	<header>
 		<img src="/images/banner.jpg" alt="">
 	</header>
-	<h1>HELLO ASTRO</h1>
+	<!-- <h1>HELLO ASTRO</h1> -->
+	<MyTitle msg="hello astro" name="123"></MyTitle>
+
 	<a href="/about">about</a>
 	<p>
 		Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi ipsa vero sed nesciunt soluta cumque, assumenda aperiam, incidunt debitis quis dolorem dolorum consectetur eum quaerat molestiae deleniti, asperiores tenetur sequi.

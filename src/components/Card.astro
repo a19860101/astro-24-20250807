@@ -1,0 +1,15 @@
+---
+const {url, data} = Astro.props
+---
+<div>
+    <div>
+        <img src="https://picsum.photos/id/30/400/300" alt="">
+    </div>
+    <div>{data.title}</div>
+    <a href={url}>繼續閱讀</a>
+</div>
+<style>
+    img {
+        width: 100%;
+    }
+</style>
