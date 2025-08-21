@@ -1,6 +1,9 @@
 ---
 let a = ['apple','banana','cat']
 let title = 'Hello Astro'
+const allPosts = Object.values(import.meta.glob('../blog/posts/*.md',{eager:true}))
+const tags = allPosts.map((post:any)=>post.frontmatter.tags).flat()
+const uniqueTags = new Set(tags)
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +13,8 @@ let title = 'Hello Astro'
     <title>Document</title>
 </head>
 <body>
-    <h1>{title}</h1>
+    <!-- {uniqueTags} -->
+    <!-- <h1>{title}</h1>
     {
         a.map(function(data){
             return <div>{data}</div>
@@ -21,6 +25,13 @@ let title = 'Hello Astro'
         <li>{a[0]}</li>
         <li>{a[1]}</li>
         <li>{a[2]}</li>
-    </ul>
+    </ul> -->
+    <script>
+        const allPosts = Object.values(import.meta.glob('../blog/posts/*.md',{eager:true}))
+        const tags = allPosts.map((post:any)=>post.frontmatter.tags).flat()
+        // const uniqueTags = Array.from(new Set(tags))
+        const uniqueTags = [...new Set(tags)]
+        console.log(uniqueTags)
+    </script>
 </body>
 </html>

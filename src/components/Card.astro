@@ -4,9 +4,19 @@ const {url, data} = Astro.props
 ---
 <div class="card">
     <div class="card-hero">
-        <img src=`images/${data.hero.src}` alt={data.hero.alt}>
+        <img src=`/images/${data.hero.src}` alt={data.hero.alt}>
+    </div>
+    <div>
+        {data.tags.join('--')}
     </div>
     <h3>{data.title}</h3>
+    <div>
+        <small>
+            {data.pubDate.slice(0,10)}
+            <br>
+            {data.author}
+        </small>
+    </div>
     <Btn url={url} text="繼續閱讀"></Btn>
 </div>
 <style>
@@ -24,6 +34,9 @@ const {url, data} = Astro.props
         h3 {
             font-size: 20px;
             margin-bottom: 0;
+        }
+        small {
+            color: #857b7b;
         }
     }
     

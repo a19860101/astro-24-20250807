@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../../components/BaseLayout.astro";
+import Card from "../../components/Card.astro";
+
+export function getStaticPaths(){
+    const allPosts = Object.values(import.meta.glob('../blog/posts/*.md',{eager:true}))
+    const uniqueTags = [...new Set(allPosts.map((post:any)=>post.frontmatter.tags).flat())]
+    // return [
+    //     {
+    //         params: {tag: '體育'},
+    //     },
+    //     {
+    //         params: {tag: '娛樂'},
+    //     }
+    // ]
+    
+    // return uniqueTags.map((t:any)=>{
+    //     return {
+    //         params: {tag: t}
+    //     }
+    // })
+
+    return uniqueTags.map((tag:any)=>{
+        const filterPosts = allPosts.filter((post:any)=>post.frontmatter.tags.includes(tag))
+        return {
+            params: {tag:tag},
+            props:{posts: filterPosts}
+        }
+    })
+}
+const  {tag} = Astro.params
+const  {posts} = Astro.props
+---
+<BaseLayout>
+    <div class="container">
+
+        {
+            posts.map((post:any)=><Card url={post.url} data={post.frontmatter}></Card>)
+        }
+    </div>
+</BaseLayout>
+<style>
+    .container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap:30px;
+    }
+</style>

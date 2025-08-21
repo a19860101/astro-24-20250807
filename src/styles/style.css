@@ -34,4 +34,5 @@ header {
 main {
     width: 800px;
     margin-inline: auto;
+    padding-bottom: 100px;
 }
