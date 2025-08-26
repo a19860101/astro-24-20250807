@@ -10,8 +10,9 @@ allPosts.sort((b:any, a:any)=>
     b.frontmatter.pubDate.localeCompare(a.frontmatter.pubDate)
 )
 const newPosts = allPosts
-newPosts.length = 3
 
+const featurePosts = allPosts.filter((post:any)=>post.frontmatter.feature == true)
+if(featurePosts.length > 3){featurePosts.length = 3}
 // const uniqueTags = [...new Set(allPosts.map((post:any) => post.frontmatter.tags).flat())]
 const uniqueTags = Array.from(new Set(allPosts.map((post:any) => post.frontmatter.tags).flat()))
 
@@ -28,13 +29,15 @@ const uniqueTags = Array.from(new Set(allPosts.map((post:any) => post.frontmatte
             uniqueTags.map((tag:any)=> <a href={`tags/${tag}`} class="tag">{tag}</a>)
         }
     </div>
+	<h2>推薦文章</h2>
+	<div class="container">
+        {
+
+            featurePosts.map((post:any) => <Card url={post.url} data={post.frontmatter}></Card>)
+        }
+    </div>
 	<h2>最新文章</h2>
 	<div class="container">
-        <!-- {
-             allPosts.map(function(post:any){
-                return <h2>{post.frontmatter.title}</h2>
-            })
-        } -->
         {
 
             newPosts.map((post:any) => <Card url={post.url} data={post.frontmatter}></Card>)
@@ -46,6 +49,7 @@ const uniqueTags = Array.from(new Set(allPosts.map((post:any) => post.frontmatte
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: 30px;
+		margin-bottom: 50px;
 	}
 	.tag-container {
         padding-block: 30px;
