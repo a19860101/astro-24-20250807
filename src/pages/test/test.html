@@ -1,0 +1,55 @@
+---
+let a = ['apple','banana','cat']
+let title = 'Hello Astro'
+const allPosts = Object.values(import.meta.glob('../blog/posts/*.md',{eager:true}))
+const tags = allPosts.map((post:any)=>post.frontmatter.tags).flat()
+const uniqueTags = new Set(tags)
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- {uniqueTags} -->
+    <!-- <h1>{title}</h1>
+    {
+        a.map(function(data){
+            return <div>{data}</div>
+        })
+    }
+
+    <ul>
+        <li>{a[0]}</li>
+        <li>{a[1]}</li>
+        <li>{a[2]}</li>
+    </ul> -->
+    <script>
+        // const allPosts = Object.values(import.meta.glob('../blog/posts/*.md',{eager:true})) 
+        // const tags = allPosts.map((post:any)=>post.frontmatter.tags).flat()
+        // const uniqueTags = Array.from(new Set(tags))
+        // const uniqueTags = [...new Set(tags)]
+        // console.log(uniqueTags)
+
+
+        // let numArray = [12,6,3,18,1,10]
+        // numArray.sort(function(a,b){return b-a})
+        // let numArray = ['12','6','3','18','1','10']
+        // numArray.sort(function(a,b){return a-b})
+        // console.log(numArray)
+
+        let dArray = ['2025-07-13','2024-08-13','2025-04-13','2025-08-13']
+        // console.log(dateArray.sort())
+        // dateArray.sort((a,b)=>a-b)
+        dArray.sort((b,a)=>
+            a.localeCompare(b) ||
+            b.localeCompare(a)
+        )
+        console.log(dArray)
+        
+
+    </script>
+</body>
+</html>
