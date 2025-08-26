@@ -5,11 +5,14 @@ import MyTitle from '../components/MyTitle.astro'
 
 import Card from "../components/Card.astro";
 const allPosts = Object.values(import.meta.glob('./blog/posts/*.md', {eager: true}))
-allPosts.sort((b:any, a:any)=> 
+
+
+const newPosts = Object.values(import.meta.glob('./blog/posts/*.md', {eager: true}))
+newPosts.sort((b:any, a:any)=> 
     a.frontmatter.pubDate.localeCompare(b.frontmatter.pubDate) ||
     b.frontmatter.pubDate.localeCompare(a.frontmatter.pubDate)
 )
-const newPosts = allPosts
+newPosts.length = 3
 
 const featurePosts = allPosts.filter((post:any)=>post.frontmatter.feature == true)
 if(featurePosts.length > 3){featurePosts.length = 3}
@@ -22,7 +25,7 @@ const uniqueTags = Array.from(new Set(allPosts.map((post:any) => post.frontmatte
 		<img src="/images/banner.jpg" alt="">
 	</header>
 	<!-- <h1>HELLO ASTRO</h1> -->
-	<MyTitle msg="hello astro" name="123"></MyTitle>
+	<!-- <MyTitle msg="hello astro" name="123"></MyTitle> -->
 	<h2>所有標籤</h2>
 	<div class="tag-container">
         {
