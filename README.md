@@ -46,8 +46,16 @@ git push origin master
 # 推送至遠端並將目前連線與分支設定為預設串流
 git push origin master -u
 
-# 若有設定預設串流的推送
+# 推送至遠端(若有設定預設串流)
 git push
 
+# 將專案複製下載(若電腦內沒有專案)
+git clone 連線位置
+
+# 從遠端更新專案(電腦內有專案)
+git pull origin master
+
+# 從遠端更新專案(若有設定預設串流)
+git pull
 
 ```
