@@ -1,6 +1,7 @@
 ---
 import Navigator from './Navigator.astro'
 import '../styles/style.css'
+import { ClientRouter } from 'astro:transitions';
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +10,7 @@ import '../styles/style.css'
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<!-- <link rel="stylesheet" href="/styles/style.css"> -->
+     <ClientRouter />
 </head>
 <body>
     <Navigator></Navigator>

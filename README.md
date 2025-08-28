@@ -1,46 +1,53 @@
-# Astro Starter Kit: Basics
+# Git
 
-```sh
-npm create astro@latest -- --template basics
+## git
+
+```bash
+# 查詢git版本
+git -v
+
+# 查詢設定
+git config --list
+
+# 設定名稱
+git config --global user.name 你的名字
+
+# 設定Email
+git config --global user.email 你的email
+
+
+# git初始化
+git init
+
+# 查看git 狀態
+git status
+
+# 將所有檔案加入暫存區
+git add .
+
+# 提交版本
+git commit -m "訊息"
+
+# 查看版本
+git log
+git log --online
+git reflog
+
+
+# 回復版本
+git reset 版本號 --hard
+
+# 建立遠端連線
+git remote add origin 連線位置
+
+# 推送至遠端
+git push origin master
+
+# 推送至遠端並將目前連線與分支設定為預設串流
+git push origin master -u
+
+# 若有設定預設串流的推送
+git push
+
+
 ```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

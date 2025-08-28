@@ -3,6 +3,8 @@ import BaseLayout from "../components/BaseLayout.astro";
 
 import MyTitle from '../components/MyTitle.astro'
 
+import {fade, slide} from 'astro:transitions'
+
 import Card from "../components/Card.astro";
 const allPosts = Object.values(import.meta.glob('./blog/posts/*.md', {eager: true}))
 
@@ -21,18 +23,19 @@ const uniqueTags = Array.from(new Set(allPosts.map((post:any) => post.frontmatte
 
 ---
 <BaseLayout>
-	<header>
+	<!-- <header transition:animate="slide"> -->
+	<header transition:animate={slide({duration: '1s'})}>
 		<img src="/images/banner.jpg" alt="">
 	</header>
 	<!-- <h1>HELLO ASTRO</h1> -->
 	<!-- <MyTitle msg="hello astro" name="123"></MyTitle> -->
-	<h2>所有標籤</h2>
+	<h2 transition:animate={fade({duration: '1s'})}>所有標籤</h2>
 	<div class="tag-container">
         {
             uniqueTags.map((tag:any)=> <a href={`tags/${tag}`} class="tag">{tag}</a>)
         }
     </div>
-	<h2>推薦文章</h2>
+	<h2 transition:animate="slide">推薦文章</h2>
 	<div class="container">
         {
 
