@@ -1,8 +1,8 @@
 # Git
 
-## git
+## git常用指令
 
-```bash
+```bash 
 # 查詢git版本
 git -v
 
