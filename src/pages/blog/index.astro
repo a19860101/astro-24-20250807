@@ -12,7 +12,7 @@ const uniqueTags = Array.from(new Set(allPosts.map((post:any) => post.frontmatte
 <BaseLayout>
     <div class="tag-container">
         {
-            uniqueTags.map((tag:any)=> <a href={`tags/${tag}`} class="tag">{tag}</a>)
+            uniqueTags.map((tag:any)=> <a href={`/tags/${tag}`} class="tag">{tag}</a>)
         }
     </div>
     <div class="container">
